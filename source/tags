@@ -1,0 +1,26 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+GFX_H	gfxlib/gfx.h	14;"	d
+gfx_clear	gfxlib/gfx.c	/^void gfx_clear()$/;"	f
+gfx_clear_color	gfxlib/gfx.c	/^void gfx_clear_color( int r, int g, int b )$/;"	f
+gfx_color	gfxlib/gfx.c	/^void gfx_color( int r, int g, int b )$/;"	f
+gfx_colormap	gfxlib/gfx.c	/^static Colormap gfx_colormap;$/;"	v	file:
+gfx_display	gfxlib/gfx.c	/^static Display *gfx_display=0;$/;"	v	file:
+gfx_event_waiting	gfxlib/gfx.c	/^int gfx_event_waiting()$/;"	f
+gfx_fast_color_mode	gfxlib/gfx.c	/^static int      gfx_fast_color_mode = 0;$/;"	v	file:
+gfx_flush	gfxlib/gfx.c	/^void gfx_flush()$/;"	f
+gfx_gc	gfxlib/gfx.c	/^static GC      gfx_gc;$/;"	v	file:
+gfx_line	gfxlib/gfx.c	/^void gfx_line( int x1, int y1, int x2, int y2 )$/;"	f
+gfx_open	gfxlib/gfx.c	/^void gfx_open( int width, int height, const char *title )$/;"	f
+gfx_point	gfxlib/gfx.c	/^void gfx_point( int x, int y )$/;"	f
+gfx_wait	gfxlib/gfx.c	/^char gfx_wait()$/;"	f
+gfx_window	gfxlib/gfx.c	/^static Window  gfx_window;$/;"	v	file:
+gfx_xpos	gfxlib/gfx.c	/^int gfx_xpos()$/;"	f
+gfx_ypos	gfxlib/gfx.c	/^int gfx_ypos()$/;"	f
+main	gfxlib/example.c	/^int main()$/;"	f
+saved_xpos	gfxlib/gfx.c	/^static int saved_xpos = 0;$/;"	v	file:
+saved_ypos	gfxlib/gfx.c	/^static int saved_ypos = 0;$/;"	v	file:
