@@ -5,6 +5,22 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 GFX_H	gfxlib/gfx.h	14;"	d
+Mat4x4	matlib/primitives.h	/^} Mat4x4;$/;"	t	typeref:struct:__anon4
+Mesh	matlib/primitives.h	/^} Mesh;$/;"	t	typeref:struct:__anon3
+Triangle	matlib/primitives.h	/^} Triangle;$/;"	t	typeref:struct:__anon2
+Vec3f	matlib/primitives.h	/^}  Vec3f;$/;"	t	typeref:struct:__anon1
+_ASPECT	matlib/matrix.c	/^static float _ASPECT;$/;"	v	file:
+_FAR	matlib/matrix.c	/^static float _FAR;$/;"	v	file:
+_FOV	matlib/matrix.c	/^static float _FOV;$/;"	v	file:
+_FOV_RAD	matlib/matrix.c	/^static float _FOV_RAD;$/;"	v	file:
+_GRAPHICS_MATRIX_H_	matlib/matrix.h	2;"	d
+_GRAPHICS_PRIMITIVES_H_	matlib/primitives.h	2;"	d
+_NEAR	matlib/matrix.c	/^static float _NEAR;$/;"	v	file:
+_init	matlib/matrix.c	/^static int _init = 0;$/;"	v	file:
+_stored_matrix	matlib/matrix.c	/^static Mat4x4* _stored_matrix;$/;"	v	file:
+create_triangle	matlib/primitives.c	/^Triangle* create_triangle(Vec3f* a, Vec3f* b, Vec3f* c)$/;"	f
+create_vec3f	matlib/primitives.c	/^Vec3f* create_vec3f(float x, float y, float x)$/;"	f
+get_projection_matrix	matlib/matrix.c	/^Mat4x4* get_projection_matrix() $/;"	f
 gfx_clear	gfxlib/gfx.c	/^void gfx_clear()$/;"	f
 gfx_clear_color	gfxlib/gfx.c	/^void gfx_clear_color( int r, int g, int b )$/;"	f
 gfx_color	gfxlib/gfx.c	/^void gfx_color( int r, int g, int b )$/;"	f
@@ -21,6 +37,15 @@ gfx_wait	gfxlib/gfx.c	/^char gfx_wait()$/;"	f
 gfx_window	gfxlib/gfx.c	/^static Window  gfx_window;$/;"	v	file:
 gfx_xpos	gfxlib/gfx.c	/^int gfx_xpos()$/;"	f
 gfx_ypos	gfxlib/gfx.c	/^int gfx_ypos()$/;"	f
+init_projection_matrix	matlib/matrix.c	/^int init_projection_matrix(float near, float far, float fov, float aspect_ratio)$/;"	f
 main	gfxlib/example.c	/^int main()$/;"	f
+mat	matlib/primitives.h	/^    float mat[4][4];$/;"	m	struct:__anon4
+mul_vec_mat	matlib/matrix.c	/^void mul_vec_mat(Vec3f* in, Vec3f* out, Mat4x4* mat)$/;"	f
+point	matlib/primitives.h	/^    Vec3f* point[3];$/;"	m	struct:__anon2
 saved_xpos	gfxlib/gfx.c	/^static int saved_xpos = 0;$/;"	v	file:
 saved_ypos	gfxlib/gfx.c	/^static int saved_ypos = 0;$/;"	v	file:
+size	matlib/primitives.h	/^    int size; $/;"	m	struct:__anon3
+tris	matlib/primitives.h	/^    Triangle** tris;$/;"	m	struct:__anon3
+x	matlib/primitives.h	/^    float x;$/;"	m	struct:__anon1
+y	matlib/primitives.h	/^    float y;$/;"	m	struct:__anon1
+z	matlib/primitives.h	/^    float z; $/;"	m	struct:__anon1

@@ -1,22 +1,40 @@
-#ifndef _GRAPHICS_VECTOR_H
-#define _GRAPHICS_VECTOR_H
+#ifndef _GRAPHICS_PRIMITIVES_H_
+#define _GRAPHICS_PRIMITIVES_H_
 
-//3d float vector
 typedef struct {
     float x;
     float y;
-    float z;
-} Vector3f;
+    float z; 
+}  Vec3f;
 
-//3-dimension triangle
 typedef struct {
-    Vector3f points[3];
+    Vec3f* point[3];
 } Triangle;
 
-//Mesh
 typedef struct {
-    Triangle* triangles;
+    Triangle** tris;
+    int _true_size;
+    int size; 
 } Mesh;
+
+typedef struct {
+    float mat[4][4];
+} Mat4x4;
+
+
+Vec3f* create_vec3f(float x, float y, float x);
+
+Triangle* create_triangle(Vec3f* a, Vec3f* b, Vec3f* c);
+
+Mesh* create_mesh();
+
+void add_mesh_triangle(Triangle* tri, Mesh* mesh);
+
+Mat4x4* create_matrix();
+
+/** Primitive shapes */
+
+Mesh* create_cube(float size);
 
 
 #endif
