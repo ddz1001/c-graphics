@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #define MESH_DEF_SIZE 12
 
-
+/**Create a new vector*/
 Vec3f* create_vec3f(float x, float y, float x)
 {
     Vec3f* vec = (Vec3f*) malloc(sizeof(Vec3f));
@@ -14,6 +14,7 @@ Vec3f* create_vec3f(float x, float y, float x)
     return vec;
 }
 
+/**Create a new triangle*/
 Triangle* create_triangle(Vec3f* a, Vec3f* b, Vec3f* c)
 {
     if(a && b && c)
@@ -31,6 +32,7 @@ Triangle* create_triangle(Vec3f* a, Vec3f* b, Vec3f* c)
     }
 }
 
+/** Create a new mesh*/
 Mesh* create_mesh()
 {
     Mesh* mesh = (Mesh*) malloc(sizeof(Mesh));
@@ -42,7 +44,7 @@ Mesh* create_mesh()
     return mesh;
 }
 
-
+/**Append a triangle to the mesh*/
 void add_mesh_triangle(Triangle* tri, Mesh* mesh)
 {
     if(tri && mesh)
@@ -54,12 +56,12 @@ void add_mesh_triangle(Triangle* tri, Mesh* mesh)
                 mesh->_true_size += MESH_DEF_SIZE;
                 mesh->tris = (Triangle**) realloc(mesh->tris, sizeof(Triangle*) * mesh->_true_size);
             }
-            mesh->tris[mesh->size - 1] = tri;
-            mesh->size++;
+            mesh->tris[mesh->size++] = tri;
         }
     }
 }
 
+/**Create a new matrix*/
 Mat4x4* create_matrix()
 {
     Mat4x4* mat = (Mat4x4*) malloc(sizeof(Mat4x4));
@@ -67,7 +69,114 @@ Mat4x4* create_matrix()
 }
 
 
+/**Memory deallocation*/
 
+/**Free a Vec3f*/
+void free_vec3f(Vec3f* ptr)
+{
+    free(ptr);
+}
+
+/**Free a Triangle*/
+void free_triangle(Triangle* ptr)
+{
+    free(ptr->point[0]);
+    free(ptr->point[1]);
+    free(ptr->point[2]);
+
+    free(ptr);
+}
+
+/**Free a Mesh*/
+void free_mesh(Mesh* ptr)
+{
+    for(int i = 0; i < ptr->size; i++)
+    {
+        free(ptr->tris[i]);
+    }
+    free(ptr->tris);
+    free(ptr);
+}
+
+/**Free a Mat4x4 */
+void free_mat4x4(Mat4x4* ptr)
+{
+    free(ptr);
+}
+
+/**Copy Functions*/
+
+/**Copy a Vec3f*/
+void copy_vec3f(Vec3f* ptr, Vec3f* out)
+{
+    if(ptr && out)
+    {
+        out->x = ptr->x;
+        out->y = ptr->y;
+        out->z = ptr->z;
+    }
+}
+
+/**Copy a Triangle*/
+void copy_triangle(Triangle* ptr, Triangle* out)
+{
+    if(ptr && out)
+    {
+        copy_vec3f(ptr->point[0], out->point[0]);
+        copy_vec3f(ptr->point[1], out->point[1]);
+        copy_vec3f(ptr->point[2], out->point[2]);
+    }
+}
+
+/** Copy an entire Mesh*/
+void copy_mesh(Mesh* ptr, Mesh* out)
+{
+    if(ptr && out)
+    {
+        Triangle* blank;
+        for(int i = 0; i < ptr->size; i++)
+        {
+            blank = create_triangle(
+                            create_vec3f(0, 0, 0),
+                            create_vec3f(0, 0, 0),
+                            create_vec3f(0, 0, 0)
+                            );
+
+            add_mesh_triangle(out, blank);
+            copy_triangle(ptr->tris[i], out->tris[i]);
+        }
+    }
+}
+
+/**Copy a Mat4x4*/
+void copy_mat4x4(Mat4x4* ptr, Mat4x4 out)
+{
+    out->mat[0][0] = ptr->mat[0][0];
+    out->mat[1][0] = ptr->mat[1][0];
+    out->mat[2][0] = ptr->mat[2][0];
+    out->mat[3][0] = ptr->mat[3][0];
+
+    out->mat[0][1] = ptr->mat[0][1];
+    out->mat[1][1] = ptr->mat[1][1];
+    out->mat[2][1] = ptr->mat[2][1];
+    out->mat[3][1] = ptr->mat[3][1];
+
+    out->mat[0][2] = ptr->mat[0][2];
+    out->mat[1][2] = ptr->mat[1][2];
+    out->mat[2][2] = ptr->mat[2][2];
+    out->mat[3][2] = ptr->mat[3][2];
+
+    out->mat[0][3] = ptr->mat[0][3];
+    out->mat[1][3] = ptr->mat[1][3];
+    out->mat[2][3] = ptr->mat[2][3];
+    out->mat[3][3] = ptr->mat[3][3];
+}
+
+
+/**Primitive shapes*/
+
+
+/**Create a cube with uniform size*/
 Mesh* create_cube(float size)
 {
     Vec3f* a1, b1, c1;
