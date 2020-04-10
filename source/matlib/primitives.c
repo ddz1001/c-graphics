@@ -3,7 +3,7 @@
 #define MESH_DEF_SIZE 12
 
 /**Create a new vector*/
-Vec3f* create_vec3f(float x, float y, float x)
+Vec3f* create_vec3f(float x, float y, float z)
 {
     Vec3f* vec = (Vec3f*) malloc(sizeof(Vec3f));
     
@@ -142,14 +142,14 @@ void copy_mesh(Mesh* ptr, Mesh* out)
                             create_vec3f(0, 0, 0)
                             );
 
-            add_mesh_triangle(out, blank);
+            add_mesh_triangle(blank, out);
             copy_triangle(ptr->tris[i], out->tris[i]);
         }
     }
 }
 
 /**Copy a Mat4x4*/
-void copy_mat4x4(Mat4x4* ptr, Mat4x4 out)
+void copy_mat4x4(Mat4x4* ptr, Mat4x4* out)
 {
     out->mat[0][0] = ptr->mat[0][0];
     out->mat[1][0] = ptr->mat[1][0];
@@ -179,18 +179,18 @@ void copy_mat4x4(Mat4x4* ptr, Mat4x4 out)
 /**Create a cube with uniform size*/
 Mesh* create_cube(float size)
 {
-    Vec3f* a1, b1, c1;
-    Vec3f* a2, b2, c2;
-    Vec3f* a3, b3, c3;
-    Vec3f* a4, b4, c4;
-    Vec3f* a5, b5, c5;
-    Vec3f* a6, b6, c6;
-    Vec3f* a7, b7, c7;
-    Vec3f* a8, b8, c8;
-    Vec3f* a9, b9, c9;
-    Vec3f* a10, b10, c10;
-    Vec3f* a11, b11, c11;
-    Vec3f* a12, b12, c12;
+    Vec3f *a1, *b1, *c1;
+    Vec3f *a2, *b2, *c2;
+    Vec3f *a3, *b3, *c3;
+    Vec3f *a4, *b4, *c4;
+    Vec3f *a5, *b5, *c5;
+    Vec3f *a6, *b6, *c6;
+    Vec3f *a7, *b7, *c7;
+    Vec3f *a8, *b8, *c8;
+    Vec3f *a9, *b9, *c9;
+    Vec3f *a10, *b10, *c10;
+    Vec3f *a11, *b11, *c11;
+    Vec3f *a12, *b12, *c12;
     
     float i = size;
     
@@ -244,7 +244,7 @@ Mesh* create_cube(float size)
     c12 = create_vec3f(-i, -i, -i);
 
     //Create the triangles    
-    Triangle* t1, t2, t3, t4, t5, t6, t7, t8, t9 ,t10, t11, t12;
+    Triangle *t1, *t2, *t3, *t4, *t5, *t6, *t7, *t8, *t9 ,*t10, *t11, *t12;
     t1 = create_triangle(a1, b1, c1);
     t2 = create_triangle(a2, b2, c2);
     t3 = create_triangle(a3, b3, c3);
@@ -260,18 +260,18 @@ Mesh* create_cube(float size)
     
     //Create the mesh
     Mesh* cube = create_mesh();
-    add_mesh_triangle(t1, cube);  
-    add_mesh_triangle(t2, cube); 
-    add_mesh_triangle(t3, cube); 
-    add_mesh_triangle(t4, cube); 
-    add_mesh_triangle(t5, cube); 
-    add_mesh_triangle(t6, cube); 
-    add_mesh_triangle(t7, cube); 
-    add_mesh_triangle(t8, cube); 
-    add_mesh_triangle(t9, cube); 
-    add_mesh_triangle(t10, cube); 
-    add_mesh_triangle(t11, cube); 
-    add_mesh_triangle(t12, cube); 
+    add_mesh_triangle(t1 , cube );  
+    add_mesh_triangle(t2 , cube ); 
+    add_mesh_triangle(t3 , cube ); 
+    add_mesh_triangle(t4 , cube ); 
+    add_mesh_triangle(t5 , cube ); 
+    add_mesh_triangle(t6 , cube ); 
+    add_mesh_triangle(t7 , cube ); 
+    add_mesh_triangle(t8 , cube ); 
+    add_mesh_triangle(t9 , cube ); 
+    add_mesh_triangle(t10, cube ); 
+    add_mesh_triangle(t11, cube ); 
+    add_mesh_triangle(t12, cube ); 
     
     return cube; 
 }

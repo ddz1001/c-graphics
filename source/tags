@@ -22,7 +22,7 @@ _init	matlib/matrix.c	/^static int _init = 0;$/;"	v	file:
 _stored_matrix	matlib/matrix.c	/^static Mat4x4* _stored_matrix;$/;"	v	file:
 _true_size	matlib/primitives.h	/^    int _true_size;$/;"	m	struct:__anon3
 add_mesh_triangle	matlib/primitives.c	/^void add_mesh_triangle(Triangle* tri, Mesh* mesh)$/;"	f
-copy_mat4x4	matlib/primitives.c	/^void copy_mat4x4(Mat4x4* ptr, Mat4x4 out)$/;"	f
+copy_mat4x4	matlib/primitives.c	/^void copy_mat4x4(Mat4x4* ptr, Mat4x4* out)$/;"	f
 copy_mesh	matlib/primitives.c	/^void copy_mesh(Mesh* ptr, Mesh* out)$/;"	f
 copy_triangle	matlib/primitives.c	/^void copy_triangle(Triangle* ptr, Triangle* out)$/;"	f
 copy_vec3f	matlib/primitives.c	/^void copy_vec3f(Vec3f* ptr, Vec3f* out)$/;"	f
@@ -30,7 +30,7 @@ create_cube	matlib/primitives.c	/^Mesh* create_cube(float size)$/;"	f
 create_matrix	matlib/primitives.c	/^Mat4x4* create_matrix()$/;"	f
 create_mesh	matlib/primitives.c	/^Mesh* create_mesh()$/;"	f
 create_triangle	matlib/primitives.c	/^Triangle* create_triangle(Vec3f* a, Vec3f* b, Vec3f* c)$/;"	f
-create_vec3f	matlib/primitives.c	/^Vec3f* create_vec3f(float x, float y, float x)$/;"	f
+create_vec3f	matlib/primitives.c	/^Vec3f* create_vec3f(float x, float y, float z)$/;"	f
 free_mat4x4	matlib/primitives.c	/^void free_mat4x4(Mat4x4* ptr)$/;"	f
 free_mesh	matlib/primitives.c	/^void free_mesh(Mesh* ptr)$/;"	f
 free_triangle	matlib/primitives.c	/^void free_triangle(Triangle* ptr)$/;"	f
@@ -57,6 +57,7 @@ gfx_window	gfxlib/gfx.c	/^static Window  gfx_window;$/;"	v	file:
 gfx_xpos	gfxlib/gfx.c	/^int gfx_xpos()$/;"	f
 gfx_ypos	gfxlib/gfx.c	/^int gfx_ypos()$/;"	f
 init_projection_matrix	matlib/matrix.c	/^int init_projection_matrix(float near, float far, float fov, float aspect_ratio)$/;"	f
+main	example.c	/^int main()$/;"	f
 main	gfxlib/example.c	/^int main()$/;"	f
 mat	matlib/primitives.h	/^    float mat[4][4];$/;"	m	struct:__anon4
 mul_vec_mat	matlib/matmath.c	/^void mul_vec_mat(Vec3f* in, Vec3f* out, Mat4x4* mat)$/;"	f

@@ -22,7 +22,7 @@ typedef struct {
 } Mat4x4;
 
 
-Vec3f* create_vec3f(float x, float y, float x);
+Vec3f* create_vec3f(float x, float y, float z);
 
 Triangle* create_triangle(Vec3f* a, Vec3f* b, Vec3f* c);
 
@@ -50,7 +50,7 @@ void copy_triangle(Triangle* ptr, Triangle* out);
 
 void copy_mesh(Mesh* ptr, Mesh* out);
 
-void copy_mat4x4(Mat4x4* ptr, Mat4x4 out);
+void copy_mat4x4(Mat4x4* ptr, Mat4x4* out);
 
 /** Primitive shapes */
 
