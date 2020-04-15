@@ -23,6 +23,7 @@ _init	matlib/matrix.c	/^static int _init = 0;$/;"	v	file:
 _stored_matrix	matlib/matrix.c	/^static Mat4x4* _stored_matrix;$/;"	v	file:
 _true_size	matlib/primitives.h	/^    int _true_size;$/;"	m	struct:__anon3
 add_mesh_triangle	matlib/primitives.c	/^void add_mesh_triangle(Triangle* tri, Mesh* mesh)$/;"	f
+camera	example2.c	/^Vec3f* camera;$/;"	v
 copy_mat4x4	matlib/primitives.c	/^void copy_mat4x4(Mat4x4* ptr, Mat4x4* out)$/;"	f
 copy_mesh	matlib/primitives.c	/^void copy_mesh(Mesh* ptr, Mesh* out)$/;"	f
 copy_triangle	matlib/primitives.c	/^void copy_triangle(Triangle* ptr, Triangle* out)$/;"	f
@@ -33,7 +34,9 @@ create_mesh	matlib/primitives.c	/^Mesh* create_mesh()$/;"	f
 create_triangle	matlib/primitives.c	/^Triangle* create_triangle(Vec3f* a, Vec3f* b, Vec3f* c)$/;"	f
 create_vec3f	matlib/primitives.c	/^Vec3f* create_vec3f(float x, float y, float z)$/;"	f
 cube	example.c	/^Mesh* cube;$/;"	v
+cube	example2.c	/^Mesh* cube;$/;"	v
 draw_scr	example.c	/^void draw_scr()$/;"	f
+draw_scr	example2.c	/^void draw_scr()$/;"	f
 free_mat4x4	matlib/primitives.c	/^void free_mat4x4(Mat4x4* ptr)$/;"	f
 free_mesh	matlib/primitives.c	/^void free_mesh(Mesh* ptr)$/;"	f
 free_triangle	matlib/primitives.c	/^void free_triangle(Triangle* ptr)$/;"	f
@@ -61,22 +64,31 @@ gfx_xpos	gfxlib/gfx.c	/^int gfx_xpos()$/;"	f
 gfx_ypos	gfxlib/gfx.c	/^int gfx_ypos()$/;"	f
 init_projection_matrix	matlib/matrix.c	/^int init_projection_matrix(float near, float far, float fov, float aspect_ratio)$/;"	f
 main	example.c	/^int main()$/;"	f
+main	example2.c	/^int main()$/;"	f
 main	gfxlib/example.c	/^int main()$/;"	f
 mat	matlib/primitives.h	/^    float mat[4][4];$/;"	m	struct:__anon4
 mul_vec_mat	matlib/matmath.c	/^void mul_vec_mat(Vec3f* in, Vec3f* out, Mat4x4* mat)$/;"	f
 normal_scale	example.c	/^Mat4x4* normal_scale;$/;"	v
+normal_scale	example2.c	/^Mat4x4* normal_scale;$/;"	v
 normal_translate	example.c	/^Mat4x4* normal_translate;$/;"	v
+normal_translate	example2.c	/^Mat4x4* normal_translate;$/;"	v
 point	matlib/primitives.h	/^    Vec3f* point[3];$/;"	m	struct:__anon2
 print_mat4x4	matlib/primitives.c	/^void print_mat4x4(Mat4x4* ptr)$/;"	f
 print_triangle	matlib/primitives.c	/^void print_triangle(Triangle* ptr)$/;"	f
 print_vec3f	matlib/primitives.c	/^void print_vec3f(Vec3f* ptr)$/;"	f
 proj	example.c	/^Mat4x4* proj;$/;"	v
+proj	example2.c	/^Mat4x4* proj;$/;"	v
 saved_xpos	gfxlib/gfx.c	/^static int saved_xpos = 0;$/;"	v	file:
 saved_ypos	gfxlib/gfx.c	/^static int saved_ypos = 0;$/;"	v	file:
 size	matlib/primitives.h	/^    int size; $/;"	m	struct:__anon3
 theta	example.c	/^float theta = 0.0f;$/;"	v
+theta	example2.c	/^float theta = 0.0f;$/;"	v
 tris	matlib/primitives.h	/^    Triangle** tris;$/;"	m	struct:__anon3
+vec_cross_product	matlib/matmath.c	/^void vec_cross_product(Vec3f* a, Vec3f* b, Vec3f* out)$/;"	f
+vec_dot_product	matlib/matmath.c	/^float vec_dot_product(Vec3f* a, Vec3f* b)$/;"	f
+vec_normalize	matlib/matmath.c	/^void vec_normalize(Vec3f* in, Vec3f* out)$/;"	f
 x	matlib/primitives.h	/^    float x;$/;"	m	struct:__anon1
 y	matlib/primitives.h	/^    float y;$/;"	m	struct:__anon1
 z	matlib/primitives.h	/^    float z; $/;"	m	struct:__anon1
 z_translate	example.c	/^Mat4x4* z_translate;$/;"	v
+z_translate	example2.c	/^Mat4x4* z_translate;$/;"	v

@@ -9,5 +9,9 @@
 
 void mul_vec_mat(Vec3f* in, Vec3f* out, Mat4x4* mat);
 
+void vec_cross_product(Vec3f* a, Vec3f* b, Vec3f* out);
 
+float vec_dot_product(Vec3f* a, Vec3f* b);
+
+void vec_normalize(Vec3f* in, Vec3f* out);
 #endif
