@@ -1,5 +1,6 @@
 #include "primitives.h"
 #include <stdlib.h>
+#include <stdio.h>
 #define MESH_DEF_SIZE 12
 
 /**Create a new vector*/
@@ -64,7 +65,7 @@ void add_mesh_triangle(Triangle* tri, Mesh* mesh)
 /**Create a new matrix*/
 Mat4x4* create_matrix()
 {
-    Mat4x4* mat = (Mat4x4*) malloc(sizeof(Mat4x4));
+    Mat4x4* mat = (Mat4x4*) calloc(1, sizeof(Mat4x4));
     return mat;
 }
 
@@ -171,6 +172,63 @@ void copy_mat4x4(Mat4x4* ptr, Mat4x4* out)
     out->mat[2][3] = ptr->mat[2][3];
     out->mat[3][3] = ptr->mat[3][3];
 }
+
+
+/** Print functions */
+
+void print_vec3f(Vec3f* ptr)
+{
+    if(ptr)
+    {
+        printf("Vec3f:\nx:%f\ny:%f\nz:%f\n", ptr->x, ptr->y, ptr->z);
+        printf("End Vec3f\n");
+    }
+    else
+    {
+        printf("%s : Vec3f pointer was null!", __FUNCTION__);
+    }
+
+}
+void print_mat4x4(Mat4x4* ptr)
+{
+
+    if(ptr)
+    {
+        printf("Mat4x4:\n[%f, %f, %f, %f]\n", 
+                ptr->mat[0][0], ptr->mat[0][1], ptr->mat[0][2], ptr->mat[0][3]);
+        printf("[%f, %f, %f, %f]\n",
+                ptr->mat[1][0], ptr->mat[1][1], ptr->mat[1][2], ptr->mat[1][3]);
+        printf("[%f, %f, %f, %f]\n",
+                ptr->mat[2][0], ptr->mat[2][1], ptr->mat[2][2], ptr->mat[2][3]);
+        printf("[%f, %f, %f, %f]\n",
+                ptr->mat[3][0], ptr->mat[3][1], ptr->mat[3][2], ptr->mat[3][3]);
+        printf("End Mat4x4\n");
+    }
+    else
+    {   
+        printf("%s : Mat4x4 pointer was null!", __FUNCTION__);
+    }
+
+}
+
+
+void print_triangle(Triangle* ptr)
+{
+    if(ptr)
+    {
+        printf("Triangle:  \n");
+        print_vec3f(ptr->point[0]);
+        print_vec3f(ptr->point[1]);
+        print_vec3f(ptr->point[2]);
+        printf("End Triangle\n");
+    }
+    else
+    {
+
+    }
+
+}
+
 
 
 /**Primitive shapes*/

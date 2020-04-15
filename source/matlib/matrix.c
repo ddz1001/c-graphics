@@ -1,7 +1,7 @@
-#include "matrix.h"
-#include "primitives.h"
 #include <math.h>
 #include <stdlib.h>
+#include "primitives.h"
+#include "matmath.h"
 
 static Mat4x4* _stored_matrix;
 
@@ -90,17 +90,17 @@ Mat4x4* get_translation_matrix(float tx, float ty, float tz)
 */
 Mat4x4* get_rotation_matrix(char axis, float theta)
 {
-    if(theta == 0.0f)
-    {
-        return get_identity_matrix();
-    }
+    //if(theta == 0.0f)
+    //{
+    //    return get_identity_matrix();
+    //}
 
     Mat4x4* rot = create_matrix();
     
     switch(axis)
     {
         case 'x':
-            /*
+           /* 
             rot->mat[0][0] = 1;
             
             rot->mat[1][1] = cosf(theta);
@@ -109,7 +109,7 @@ Mat4x4* get_rotation_matrix(char axis, float theta)
             rot->mat[2][1] = sinf(theta);
             rot->mat[2][2] = cosf(theta);
             */
-
+             
             rot->mat[0][0] = 1;
             
             rot->mat[1][1] = cosf(theta);
@@ -117,6 +117,17 @@ Mat4x4* get_rotation_matrix(char axis, float theta)
             
             rot->mat[1][2] = sinf(theta);
             rot->mat[2][2] = cosf(theta);
+            
+            rot->mat[3][3] = 0;
+            /* 
+            rot->mat[2][0] = 1;
+            
+            rot->mat[0][1] = -sinf(theta);
+            rot->mat[0][2] = cosf(theta);
+
+            rot->mat[1][1] = cosf(theta);
+            rot->mat[1][2] = sinf(theta);
+            */
             
             break;
         case 'y':
@@ -129,6 +140,7 @@ Mat4x4* get_rotation_matrix(char axis, float theta)
             rot->mat[2][0] = -sinf(theta);
             rot->mat[2][2] = cosf(theta);
             */
+                        
             rot->mat[0][0] = cosf(theta);
             rot->mat[2][0] = sinf(theta);
 
@@ -136,9 +148,21 @@ Mat4x4* get_rotation_matrix(char axis, float theta)
 
             rot->mat[0][2] = -sinf(theta);
             rot->mat[2][2] = cosf(theta);
+            
+            rot->mat[3][3] = 1;
+
+            /*
+            rot->mat[0][0] = sinf(theta);
+            rot->mat[0][2] = cosf(theta);
+
+            rot->mat[1][1] = 1;
+            
+            rot->mat[2][0] = cosf(theta);
+            rot->mat[2][2] = -sinf(theta);
+            */
             break;
         case 'z':
-            /*
+            /*            
             rot->mat[0][0] = cosf(theta);
             rot->mat[0][1] = -sinf(theta);
             
@@ -147,6 +171,8 @@ Mat4x4* get_rotation_matrix(char axis, float theta)
 
             rot->mat[2][2] = 1;
             */
+            
+            
             rot->mat[0][0] = cosf(theta);
             rot->mat[1][0] = -sinf(theta);
             
@@ -154,7 +180,17 @@ Mat4x4* get_rotation_matrix(char axis, float theta)
             rot->mat[1][1] = cosf(theta);
 
             rot->mat[2][2] = 1;
+            
+            rot->mat[3][3] = 1;
+            /*
+            rot->mat[0][2] = 1;
 
+            rot->mat[1][0] = -sinf(theta);
+            rot->mat[1][1] = cosf(theta);
+            
+            rot->mat[2][0] = cosf(theta);
+            rot->mat[2][1] = sinf(theta);
+            */
             break;
 
         default:

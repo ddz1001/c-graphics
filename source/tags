@@ -5,7 +5,8 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 GFX_H	gfxlib/gfx.h	14;"	d
-MESH_DEF_SIZE	matlib/primitives.c	3;"	d	file:
+MESH_DEF_SIZE	matlib/primitives.c	4;"	d	file:
+M_PI	matlib/matmath.h	7;"	d
 Mat4x4	matlib/primitives.h	/^} Mat4x4;$/;"	t	typeref:struct:__anon4
 Mesh	matlib/primitives.h	/^} Mesh;$/;"	t	typeref:struct:__anon3
 Triangle	matlib/primitives.h	/^} Triangle;$/;"	t	typeref:struct:__anon2
@@ -31,6 +32,8 @@ create_matrix	matlib/primitives.c	/^Mat4x4* create_matrix()$/;"	f
 create_mesh	matlib/primitives.c	/^Mesh* create_mesh()$/;"	f
 create_triangle	matlib/primitives.c	/^Triangle* create_triangle(Vec3f* a, Vec3f* b, Vec3f* c)$/;"	f
 create_vec3f	matlib/primitives.c	/^Vec3f* create_vec3f(float x, float y, float z)$/;"	f
+cube	example.c	/^Mesh* cube;$/;"	v
+draw_scr	example.c	/^void draw_scr()$/;"	f
 free_mat4x4	matlib/primitives.c	/^void free_mat4x4(Mat4x4* ptr)$/;"	f
 free_mesh	matlib/primitives.c	/^void free_mesh(Mesh* ptr)$/;"	f
 free_triangle	matlib/primitives.c	/^void free_triangle(Triangle* ptr)$/;"	f
@@ -61,11 +64,19 @@ main	example.c	/^int main()$/;"	f
 main	gfxlib/example.c	/^int main()$/;"	f
 mat	matlib/primitives.h	/^    float mat[4][4];$/;"	m	struct:__anon4
 mul_vec_mat	matlib/matmath.c	/^void mul_vec_mat(Vec3f* in, Vec3f* out, Mat4x4* mat)$/;"	f
+normal_scale	example.c	/^Mat4x4* normal_scale;$/;"	v
+normal_translate	example.c	/^Mat4x4* normal_translate;$/;"	v
 point	matlib/primitives.h	/^    Vec3f* point[3];$/;"	m	struct:__anon2
+print_mat4x4	matlib/primitives.c	/^void print_mat4x4(Mat4x4* ptr)$/;"	f
+print_triangle	matlib/primitives.c	/^void print_triangle(Triangle* ptr)$/;"	f
+print_vec3f	matlib/primitives.c	/^void print_vec3f(Vec3f* ptr)$/;"	f
+proj	example.c	/^Mat4x4* proj;$/;"	v
 saved_xpos	gfxlib/gfx.c	/^static int saved_xpos = 0;$/;"	v	file:
 saved_ypos	gfxlib/gfx.c	/^static int saved_ypos = 0;$/;"	v	file:
 size	matlib/primitives.h	/^    int size; $/;"	m	struct:__anon3
+theta	example.c	/^float theta = 0.0f;$/;"	v
 tris	matlib/primitives.h	/^    Triangle** tris;$/;"	m	struct:__anon3
 x	matlib/primitives.h	/^    float x;$/;"	m	struct:__anon1
 y	matlib/primitives.h	/^    float y;$/;"	m	struct:__anon1
 z	matlib/primitives.h	/^    float z; $/;"	m	struct:__anon1
+z_translate	example.c	/^Mat4x4* z_translate;$/;"	v
